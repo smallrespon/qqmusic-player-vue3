@@ -8,15 +8,15 @@ import eslintPlugin from "vite-plugin-eslint";
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [
-    vue(),
-    vueDevTools(),
-    eslintPlugin({
-      cache: false,
-      include: ["src/**/*.js", "src/**/*.jsx", "src/**/*.ts", "src/**/*.tsx", "src/**/*.vue"],
-      exclude: ["node_modules", "dist"],
-      emitWarning: true,
-      emitError: false,
-    }),
+    vue()
+    
+    // eslintPlugin({
+    //   cache: false,
+    //   include: ["src/**/*.js", "src/**/*.jsx", "src/**/*.ts", "src/**/*.tsx", "src/**/*.vue"],
+    //   exclude: ["node_modules", "dist"],
+    //   emitWarning: true,
+    //   emitError: false,
+    // }),
   ],
  
   resolve: {
@@ -35,19 +35,19 @@ export default defineConfig({
     rollupOptions: {
       output: {
         // 手动分割代码块 - 使用函数形式避免与动态导入冲突
-        manualChunks(id) {
-          if (id.includes("node_modules")) {
-            if (id.includes("vue") || id.includes("pinia") || id.includes("vue-router")) {
-              return "vue-vendor";
-            }
-            if (id.includes("element-plus") || id.includes("@element-plus")) {
-              return "element-plus";
-            }
-            if (id.includes("axios")) {
-              return "utils";
-            }
-          }
-        },
+        // manualChunks(id) {
+        //   if (id.includes("node_modules")) {
+        //     if (id.includes("vue") || id.includes("pinia") || id.includes("vue-router")) {
+        //       return "vue-vendor";
+        //     }
+        //     if (id.includes("element-plus") || id.includes("@element-plus")) {
+        //       return "element-plus";
+        //     }
+        //     if (id.includes("axios")) {
+        //       return "utils";
+        //     }
+        //   }
+        // },
         // 优化 chunk 文件名
         chunkFileNames: "assets/js/[name]-[hash].js",
         entryFileNames: "assets/js/[name]-[hash].js",
