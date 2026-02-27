@@ -18,7 +18,7 @@ export default defineConfig({
       emitError: false,
     }),
   ],
-  base: "/qqmusic-player-vue3/", // 注意前后都有斜杠，比如 '/my-music-app/'
+ 
   resolve: {
     alias: {
       "@": fileURLToPath(new URL("./src", import.meta.url)),
